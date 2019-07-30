@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.dao.HouseMapper">
+    <resultMap id="BaseResultMap" type="com.qianfeng.pojo.House">
+        <id column="hid" jdbcType="INTEGER" property="hid"/>
+        <result column="price" jdbcType="DOUBLE" property="price"/>
+        <result column="htype" jdbcType="VARCHAR" property="htype"/>
+        <result column="area" jdbcType="DOUBLE" property="area"/>
+        <result column="aspect" jdbcType="VARCHAR" property="aspect"/>
+        <result column="floor" jdbcType="VARCHAR" property="floor"/>
+        <result column="adorn" jdbcType="VARCHAR" property="adorn"/>
+        <result column="plot" jdbcType="VARCHAR" property="plot"/>
+        <result column="rent" jdbcType="VARCHAR" property="rent"/>
+        <result column="hdetails" jdbcType="VARCHAR" property="hdetails"/>
+        <result column="imgpath" jdbcType="VARCHAR" property="imgpath"/>
+        <result column="community" jdbcType="VARCHAR" property="community"/>
+        <result column="issure" jdbcType="VARCHAR" property="issure"/>
+        <result column="rtime" jdbcType="DATE" property="rtime"/>
+        <result column="region" jdbcType="VARCHAR" property="region"/>
+        <result column="rid" jdbcType="INTEGER" property="rid"/>
+        <result column="pid" jdbcType="VARCHAR" property="pid"/>
+        <result column="rform" jdbcType="VARCHAR" property="rform"/>
+        <result column="fid" jdbcType="INTEGER" property="fid"/>
+        <result column="aid" jdbcType="INTEGER" property="aid"/>
+        <result column="hxid" jdbcType="INTEGER" property="hxid"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        hid, price, htype, area, aspect, floor, adorn, plot, rent, hdetails, imgpath, community,
+        issure, rtime, region, rid, pid, rform, fid, aid, hxid
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_house
+        where hid = #{hid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from t_house
+        where hid = #{hid,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.qianfeng.pojo.House">
+        insert into t_house (hid, price, htype,
+        area, aspect, floor,
+        adorn, plot, rent,
+        hdetails, imgpath, community,
+        issure, rtime, region,
+        rid, pid, rform, fid,
+        aid, hxid)
+        values (#{hid,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{htype,jdbcType=VARCHAR},
+        #{area,jdbcType=DOUBLE}, #{aspect,jdbcType=VARCHAR}, #{floor,jdbcType=VARCHAR},
+        #{adorn,jdbcType=VARCHAR}, #{plot,jdbcType=VARCHAR}, #{rent,jdbcType=VARCHAR},
+        #{hdetails,jdbcType=VARCHAR}, #{imgpath,jdbcType=VARCHAR}, #{community,jdbcType=VARCHAR},
+        #{issure,jdbcType=VARCHAR}, #{rtime,jdbcType=DATE}, #{region,jdbcType=VARCHAR},
+        #{rid,jdbcType=INTEGER}, #{pid,jdbcType=VARCHAR}, #{rform,jdbcType=VARCHAR}, #{fid,jdbcType=INTEGER},
+        #{aid,jdbcType=INTEGER}, #{hxid,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.qianfeng.pojo.House">
+        insert into t_house
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="hid != null">
+                hid,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="htype != null">
+                htype,
+            </if>
+            <if test="area != null">
+                area,
+            </if>
+            <if test="aspect != null">
+                aspect,
+            </if>
+            <if test="floor != null">
+                floor,
+            </if>
+            <if test="adorn != null">
+                adorn,
+            </if>
+            <if test="plot != null">
+                plot,
+            </if>
+            <if test="rent != null">
+                rent,
+            </if>
+            <if test="hdetails != null">
+                hdetails,
+            </if>
+            <if test="imgpath != null">
+                imgpath,
+            </if>
+            <if test="community != null">
+                community,
+            </if>
+            <if test="issure != null">
+                issure,
+            </if>
+            <if test="rtime != null">
+                rtime,
+            </if>
+            <if test="region != null">
+                region,
+            </if>
+            <if test="rid != null">
+                rid,
+            </if>
+            <if test="pid != null">
+                pid,
+            </if>
+            <if test="rform != null">
+                rform,
+            </if>
+            <if test="fid != null">
+                fid,
+            </if>
+            <if test="aid != null">
+                aid,
+            </if>
+            <if test="hxid != null">
+                hxid,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="hid != null">
+                #{hid,jdbcType=INTEGER},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=DOUBLE},
+            </if>
+            <if test="htype != null">
+                #{htype,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                #{area,jdbcType=DOUBLE},
+            </if>
+            <if test="aspect != null">
+                #{aspect,jdbcType=VARCHAR},
+            </if>
+            <if test="floor != null">
+                #{floor,jdbcType=VARCHAR},
+            </if>
+            <if test="adorn != null">
+                #{adorn,jdbcType=VARCHAR},
+            </if>
+            <if test="plot != null">
+                #{plot,jdbcType=VARCHAR},
+            </if>
+            <if test="rent != null">
+                #{rent,jdbcType=VARCHAR},
+            </if>
+            <if test="hdetails != null">
+                #{hdetails,jdbcType=VARCHAR},
+            </if>
+            <if test="imgpath != null">
+                #{imgpath,jdbcType=VARCHAR},
+            </if>
+            <if test="community != null">
+                #{community,jdbcType=VARCHAR},
+            </if>
+            <if test="issure != null">
+                #{issure,jdbcType=VARCHAR},
+            </if>
+            <if test="rtime != null">
+                #{rtime,jdbcType=DATE},
+            </if>
+            <if test="region != null">
+                #{region,jdbcType=VARCHAR},
+            </if>
+            <if test="rid != null">
+                #{rid,jdbcType=INTEGER},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=VARCHAR},
+            </if>
+            <if test="rform != null">
+                #{rform,jdbcType=VARCHAR},
+            </if>
+            <if test="fid != null">
+                #{fid,jdbcType=INTEGER},
+            </if>
+            <if test="aid != null">
+                #{aid,jdbcType=INTEGER},
+            </if>
+            <if test="hxid != null">
+                #{hxid,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.qianfeng.pojo.House">
+        update t_house
+        <set>
+            <if test="price != null">
+                price = #{price,jdbcType=DOUBLE},
+            </if>
+            <if test="htype != null">
+                htype = #{htype,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                area = #{area,jdbcType=DOUBLE},
+            </if>
+            <if test="aspect != null">
+                aspect = #{aspect,jdbcType=VARCHAR},
+            </if>
+            <if test="floor != null">
+                floor = #{floor,jdbcType=VARCHAR},
+            </if>
+            <if test="adorn != null">
+                adorn = #{adorn,jdbcType=VARCHAR},
+            </if>
+            <if test="plot != null">
+                plot = #{plot,jdbcType=VARCHAR},
+            </if>
+            <if test="rent != null">
+                rent = #{rent,jdbcType=VARCHAR},
+            </if>
+            <if test="hdetails != null">
+                hdetails = #{hdetails,jdbcType=VARCHAR},
+            </if>
+            <if test="imgpath != null">
+                imgpath = #{imgpath,jdbcType=VARCHAR},
+            </if>
+            <if test="community != null">
+                community = #{community,jdbcType=VARCHAR},
+            </if>
+            <if test="issure != null">
+                issure = #{issure,jdbcType=VARCHAR},
+            </if>
+            <if test="rtime != null">
+                rtime = #{rtime,jdbcType=DATE},
+            </if>
+            <if test="region != null">
+                region = #{region,jdbcType=VARCHAR},
+            </if>
+            <if test="rid != null">
+                rid = #{rid,jdbcType=INTEGER},
+            </if>
+            <if test="pid != null">
+                pid = #{pid,jdbcType=VARCHAR},
+            </if>
+            <if test="rform != null">
+                rform = #{rform,jdbcType=VARCHAR},
+            </if>
+            <if test="fid != null">
+                fid = #{fid,jdbcType=INTEGER},
+            </if>
+            <if test="aid != null">
+                aid = #{aid,jdbcType=INTEGER},
+            </if>
+            <if test="hxid != null">
+                hxid = #{hxid,jdbcType=INTEGER},
+            </if>
+        </set>
+        where hid = #{hid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.qianfeng.pojo.House">
+        update t_house
+        set price = #{price,jdbcType=DOUBLE},
+        htype = #{htype,jdbcType=VARCHAR},
+        area = #{area,jdbcType=DOUBLE},
+        aspect = #{aspect,jdbcType=VARCHAR},
+        floor = #{floor,jdbcType=VARCHAR},
+        adorn = #{adorn,jdbcType=VARCHAR},
+        plot = #{plot,jdbcType=VARCHAR},
+        rent = #{rent,jdbcType=VARCHAR},
+        hdetails = #{hdetails,jdbcType=VARCHAR},
+        imgpath = #{imgpath,jdbcType=VARCHAR},
+        community = #{community,jdbcType=VARCHAR},
+        issure = #{issure,jdbcType=VARCHAR},
+        rtime = #{rtime,jdbcType=DATE},
+        region = #{region,jdbcType=VARCHAR},
+        rid = #{rid,jdbcType=INTEGER},
+        pid = #{pid,jdbcType=VARCHAR},
+        rform = #{rform,jdbcType=VARCHAR},
+        fid = #{fid,jdbcType=INTEGER},
+        aid = #{aid,jdbcType=INTEGER},
+        hxid = #{hxid,jdbcType=INTEGER}
+        where hid = #{hid,jdbcType=INTEGER}
+    </update>
+    <!-- <select id="findAll" resultMap="BaseResultMap">
+         select * from t_house limit
+     </select>-->
+
+</mapper>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.dao.ShowMapper">
+    <resultMap id="BaseResultMap" type="com.qianfeng.pojo.Show">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="region" jdbcType="VARCHAR" property="region"/>
+        <result column="rid" jdbcType="INTEGER" property="rid"/>
+        <result column="rent" jdbcType="VARCHAR" property="rent"/>
+        <result column="pid" jdbcType="INTEGER" property="pid"/>
+        <result column="rform" jdbcType="VARCHAR" property="rform"/>
+        <result column="fid" jdbcType="INTEGER" property="fid"/>
+        <result column="area" jdbcType="VARCHAR" property="area"/>
+        <result column="aid" jdbcType="INTEGER" property="aid"/>
+        <result column="htype" jdbcType="VARCHAR" property="htype"/>
+        <result column="hid" jdbcType="INTEGER" property="hid"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, region, rid, rent, pid, rform, fid, area, aid, htype, hid
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_show
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from t_show
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.qianfeng.pojo.Show">
+        insert into t_show (id, region, rid,
+        rent, pid, rform, fid,
+        area, aid, htype, hid
+        )
+        values (#{id,jdbcType=INTEGER}, #{region,jdbcType=VARCHAR}, #{rid,jdbcType=INTEGER},
+        #{rent,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, #{rform,jdbcType=VARCHAR}, #{fid,jdbcType=INTEGER},
+        #{area,jdbcType=VARCHAR}, #{aid,jdbcType=INTEGER}, #{htype,jdbcType=VARCHAR}, #{hid,jdbcType=INTEGER}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.qianfeng.pojo.Show">
+        insert into t_show
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="region != null">
+                region,
+            </if>
+            <if test="rid != null">
+                rid,
+            </if>
+            <if test="rent != null">
+                rent,
+            </if>
+            <if test="pid != null">
+                pid,
+            </if>
+            <if test="rform != null">
+                rform,
+            </if>
+            <if test="fid != null">
+                fid,
+            </if>
+            <if test="area != null">
+                area,
+            </if>
+            <if test="aid != null">
+                aid,
+            </if>
+            <if test="htype != null">
+                htype,
+            </if>
+            <if test="hid != null">
+                hid,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="region != null">
+                #{region,jdbcType=VARCHAR},
+            </if>
+            <if test="rid != null">
+                #{rid,jdbcType=INTEGER},
+            </if>
+            <if test="rent != null">
+                #{rent,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="rform != null">
+                #{rform,jdbcType=VARCHAR},
+            </if>
+            <if test="fid != null">
+                #{fid,jdbcType=INTEGER},
+            </if>
+            <if test="area != null">
+                #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="aid != null">
+                #{aid,jdbcType=INTEGER},
+            </if>
+            <if test="htype != null">
+                #{htype,jdbcType=VARCHAR},
+            </if>
+            <if test="hid != null">
+                #{hid,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.qianfeng.pojo.Show">
+        update t_show
+        <set>
+            <if test="region != null">
+                region = #{region,jdbcType=VARCHAR},
+            </if>
+            <if test="rid != null">
+                rid = #{rid,jdbcType=INTEGER},
+            </if>
+            <if test="rent != null">
+                rent = #{rent,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null">
+                pid = #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="rform != null">
+                rform = #{rform,jdbcType=VARCHAR},
+            </if>
+            <if test="fid != null">
+                fid = #{fid,jdbcType=INTEGER},
+            </if>
+            <if test="area != null">
+                area = #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="aid != null">
+                aid = #{aid,jdbcType=INTEGER},
+            </if>
+            <if test="htype != null">
+                htype = #{htype,jdbcType=VARCHAR},
+            </if>
+            <if test="hid != null">
+                hid = #{hid,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.qianfeng.pojo.Show">
+        update t_show
+        set region = #{region,jdbcType=VARCHAR},
+        rid = #{rid,jdbcType=INTEGER},
+        rent = #{rent,jdbcType=VARCHAR},
+        pid = #{pid,jdbcType=INTEGER},
+        rform = #{rform,jdbcType=VARCHAR},
+        fid = #{fid,jdbcType=INTEGER},
+        area = #{area,jdbcType=VARCHAR},
+        aid = #{aid,jdbcType=INTEGER},
+        htype = #{htype,jdbcType=VARCHAR},
+        hid = #{hid,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from t_show
+    </select>
+</mapper>
